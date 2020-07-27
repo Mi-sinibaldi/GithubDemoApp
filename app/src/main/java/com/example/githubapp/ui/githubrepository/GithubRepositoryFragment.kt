@@ -33,12 +33,14 @@ class GithubRepositoryFragment : Fragment(), GithubRepositoryAdapter.ItemListene
         setupRecyclerView(view)
         setupObservers()
         return view
+
+
     }
 
     private fun setupRecyclerView(view: View) {
         adapter = GithubRepositoryAdapter(this)
-        view.characters_rv.layoutManager = LinearLayoutManager(activity)
-        view.characters_rv.adapter = adapter
+        view.repository_rv.layoutManager = LinearLayoutManager(activity)
+        view.repository_rv.adapter = adapter
     }
 
     private fun setupObservers() {
