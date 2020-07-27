@@ -8,5 +8,5 @@ class GithubRemoteDataSource @Inject constructor(
 ) : BaseDataSource() {
 
     suspend fun getGithubItens() = getResult { githubService.getGithubItens() }
-    suspend fun getGithubPulls(id: Int) = getResult { githubPullService.getGithubPUlls() }
+    suspend fun getGithubPulls(name: String,repositoryName: String) = getResult { githubPullService.getGithubPUlls(name,repositoryName) }
 }

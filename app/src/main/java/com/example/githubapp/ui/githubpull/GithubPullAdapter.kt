@@ -66,6 +66,6 @@ class GithubPullViewHolder(
     }
 
     override fun onClick(v: View?) {
-        listener.onClickedItem(githubPull.id)
+        //listener.onClickedItem(githubPull.user.)
     }
 }

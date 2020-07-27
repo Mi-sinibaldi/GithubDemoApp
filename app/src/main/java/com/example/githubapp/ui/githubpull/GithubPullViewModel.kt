@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
+import com.example.githubapp.data.entities.GithubItem
 import com.example.githubapp.data.entities.GithubPullResponse
 import com.example.githubapp.data.repository.GithubPullRepository
 import com.example.githubapp.utils.Resource
@@ -13,16 +14,16 @@ class GithubPullViewModel @ViewModelInject constructor(
     private val repository: GithubPullRepository
 ) : ViewModel() {
 
-    private val _id = MutableLiveData<Int>()
+    private val _githubItem = MutableLiveData<GithubItem>()
 
-    private val _result = _id.switchMap { id ->
-        repository.getGithubPull(id)
+    private val _result = _githubItem.switchMap { gitHubItem ->
+        repository.getGithubPull(gitHubItem.owner.login, gitHubItem.name)
     }
 
     val result: LiveData<Resource<List<GithubPullResponse>>> = _result
 
-    fun start(id: Int) {
-        _id.value = id
+    fun start(githubItem: GithubItem) {
+        _githubItem.value = githubItem
     }
 
 }

@@ -1,9 +1,6 @@
 package com.example.githubapp.di
 
 import android.content.Context
-import com.example.githubapp.data.local.AppDatabase
-import com.example.githubapp.data.local.GithubDao
-import com.example.githubapp.data.local.GithubPullDao
 import com.example.githubapp.data.remote.GithubPullService
 import com.example.githubapp.data.remote.GithubRemoteDataSource
 import com.example.githubapp.data.remote.GithubService
@@ -49,30 +46,15 @@ object AppModule {
         githubPullService: GithubPullService
     ) = GithubRemoteDataSource(githubService, githubPullService)
 
-
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext appContext: Context) =
-        AppDatabase.getDatabase(appContext)
-
-    @Singleton
-    @Provides
-    fun provideGithubItemDao(db: AppDatabase) = db.githubDao()
-
-    @Singleton
-    @Provides
-    fun provideGithubPullDao(db: AppDatabase) = db.githubPullDao()
-
-    @Singleton
-    @Provides
-    fun provideRepository(remoteDataSource: GithubRemoteDataSource, localDataSource: GithubDao) =
-        GithubRepository(remoteDataSource, localDataSource)
+    fun provideRepository(remoteDataSource: GithubRemoteDataSource) =
+        GithubRepository(remoteDataSource)
 
     @Singleton
     @Provides
     fun providePullRepository(
-        remoteDataSource: GithubRemoteDataSource,
-        localDataSource: GithubPullDao
+        remoteDataSource: GithubRemoteDataSource
     ) =
-        GithubPullRepository(remoteDataSource, localDataSource)
+        GithubPullRepository(remoteDataSource)
 }

@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubapp.R
+import com.example.githubapp.data.entities.GithubItem
 import com.example.githubapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.github_pull_fragment.pull_progress_bar
@@ -27,7 +28,7 @@ class GithubPullFragment : Fragment(), GithubPullAdapter.ItemListener {
     ): View? {
 
         val view = inflater.inflate(R.layout.github_pull_fragment, container, false)
-        arguments?.getInt("id")?.let { viewModel.start(it) }
+        arguments?.getParcelable<GithubItem>("githubItem")?.let { viewModel.start(it) }
         setupRecyclerView(view)
         setupObservers(view)
         return view
@@ -43,6 +44,7 @@ class GithubPullFragment : Fragment(), GithubPullAdapter.ItemListener {
     private fun setupObservers(view: View) {
         viewModel.result.observe(viewLifecycleOwner, Observer {
             when (it.status) {
+
                 Resource.Status.SUCCESS -> {
                     pull_progress_bar.visibility = View.GONE
                     if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))

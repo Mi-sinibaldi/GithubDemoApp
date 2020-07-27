@@ -15,7 +15,7 @@ class GithubRepositoryAdapter(private val listener: ItemListener) :
     RecyclerView.Adapter<GithubRepositoryViewHolder>() {
 
     interface ItemListener {
-        fun onClickedItem(itemId: Int)
+        fun onClickedItem(githubItem: GithubItem)
     }
 
     private val items = ArrayList<GithubItem>()
@@ -69,6 +69,6 @@ class GithubRepositoryViewHolder(
     }
 
     override fun onClick(v: View?) {
-        listener.onClickedItem(githubItem.id)
+        listener.onClickedItem(githubItem)
     }
 }

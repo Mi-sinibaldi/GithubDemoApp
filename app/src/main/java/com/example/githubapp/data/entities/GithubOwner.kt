@@ -1,7 +1,10 @@
 package com.example.githubapp.data.entities
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class GithubOwner(
     @SerializedName("login")
     val login: String,
@@ -11,4 +14,4 @@ data class GithubOwner(
 
     @SerializedName("type")
     val typeUser: String
-)
+): Parcelable

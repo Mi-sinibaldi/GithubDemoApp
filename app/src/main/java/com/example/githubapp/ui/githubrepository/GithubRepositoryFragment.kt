@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.githubapp.R
+import com.example.githubapp.data.entities.GithubItem
 import com.example.githubapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.github_repository_fragment.*
@@ -45,7 +46,7 @@ class GithubRepositoryFragment : Fragment(), GithubRepositoryAdapter.ItemListene
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     progress_bar.visibility = View.GONE
-                    if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
+                    if (!it.data?.items.isNullOrEmpty()) adapter.setItems(ArrayList(it.data!!.items))
                 }
                 Resource.Status.ERROR ->
                     Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
@@ -56,10 +57,11 @@ class GithubRepositoryFragment : Fragment(), GithubRepositoryAdapter.ItemListene
         })
     }
 
-    override fun onClickedItem(itemId: Int) {
+    override fun onClickedItem(githubItem: GithubItem) {
         findNavController().navigate(
             R.id.action_charactersFragment_to_characterDetailFragment,
-            bundleOf("id" to itemId)
+            bundleOf("githubItem" to githubItem)
+
         )
     }
 }

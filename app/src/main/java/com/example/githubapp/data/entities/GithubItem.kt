@@ -1,13 +1,11 @@
 package com.example.githubapp.data.entities
 
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "githubitem")
-data class GithubItem(
-    @PrimaryKey
+@Parcelize
+data class GithubItem (
     @SerializedName("id")
     val id: Int,
 
@@ -20,7 +18,6 @@ data class GithubItem(
     @SerializedName("full_name")
     val fullName: String,
 
-    @Embedded
     @SerializedName("owner")
     val owner: GithubOwner,
 
@@ -32,4 +29,4 @@ data class GithubItem(
 
     @SerializedName("stargazers_count")
     val stargazersCount: Int
-)
+): Parcelable
