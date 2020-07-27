@@ -26,7 +26,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="NomeRepositorio"
+            android:text="@string/name_repository"
+            android:importantForAccessibility="yes"
             android:textColor="@color/colorBlue"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/imageViewPersonRepository"
@@ -43,7 +44,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:text="descricao do repositorio"
+            android:text="@string/desc_repository"
+            android:importantForAccessibility="yes"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/imageViewPersonRepository"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,10 +59,12 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:contentDescription="@string/contet_description_image_fork"
+            android:importantForAccessibility="yes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewDescRepository"
-            app:srcCompat="@drawable/ic_fork" />
+            tools:srcCompat="@drawable/ic_fork" />
 
         <TextView
             android:id="@+id/textViewQtdFork"
@@ -70,7 +74,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="640"
+            android:importantForAccessibility="yes"
             android:textColor="@color/colorOrange"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -87,12 +91,13 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/content_description_image_stars"
+            android:importantForAccessibility="yes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewQtdStars"
             app:layout_constraintStart_toEndOf="@+id/textViewQtdFork"
             app:layout_constraintTop_toBottomOf="@+id/textViewDescRepository"
-            app:srcCompat="@drawable/ic_star_black_24dp" />
+            tools:srcCompat="@drawable/ic_star_black_24dp" />
 
 
         <TextView
@@ -103,7 +108,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="98"
+            android:importantForAccessibility="yes"
             android:textColor="@color/colorOrange"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -120,7 +125,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:gravity="center"
-            android:text="UserName"
+            android:text="@string/username_repository"
+            android:importantForAccessibility="yes"
             android:textColor="@color/colorBlue"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -139,7 +145,8 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="Nome e sobrenome"
+            android:text="@string/fullname_repository"
+            android:importantForAccessibility="yes"
             android:textColor="@color/colorGrey"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -162,6 +169,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageViewPersonRepository"
+            android:importantForAccessibility="yes"
+            android:contentDescription="@string/content_description_image_user"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"

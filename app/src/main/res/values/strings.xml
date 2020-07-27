@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">GithubApp</string>
+    <string name="title_pull">Titulo do PullRequest</string>
+    <string name="body_pull">Body pull Request</string>
+    <string name="username_pull">Username</string>
+    <string name="name_repository">NomeRepositorio</string>
+    <string name="desc_repository">descricao do repositorio</string>
+    <string name="content_description_image_stars">imagem de estrela que representa a quantidade de curtidas</string>
+    <string name="username_repository">UserName</string>
+    <string name="fullname_repository">Nome e sobrenome</string>
+    <string name="content_description_image_user">imagem que representa a foto de perfil do usuário</string>
+    <string name="contet_description_image_fork">imagem que representa a quantidade de fork do repositorio</string>
 </resources>
